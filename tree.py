@@ -74,3 +74,27 @@ class Solution4(object):
         if not root:
             return []
         return [root.val]+self.preorderTraversal(root.left)+self.preorderTraversal(root.right)
+# 递归实现二叉树的中序遍历
+
+
+class Solution5(object):
+    def preorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        if not root:
+            return []
+        return self.preorderTraversal(root.left)+[root.val]+self.preorderTraversal(root.right)
+# 递归实现二叉树的后序遍历
+
+
+class Solution6(object):
+    def preorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        if not root:
+            return []
+        return self.preorderTraversal(root.left)+self.preorderTraversal(root.right)+[root.val]
