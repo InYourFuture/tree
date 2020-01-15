@@ -98,3 +98,17 @@ class Solution6(object):
         if not root:
             return []
         return self.preorderTraversal(root.left)+self.preorderTraversal(root.right)+[root.val]
+
+
+# 二叉树层序遍历
+class Solution:
+    def levelOrder(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        ans, level = [], [root]
+        while any(level):
+            ans.append([node.val for node in level])
+            level = [kid for n in level for kid in (n.left, n.right) if kid]
+        return ans
